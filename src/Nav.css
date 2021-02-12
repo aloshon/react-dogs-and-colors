@@ -1,0 +1,13 @@
+.navbar {
+    background-color: darkslateblue;
+    padding: 1rem;
+}
+
+.navbar a {
+    margin: 20px;
+    color: white;
+}
+
+.navbar a.active {
+    color: darkgrey;
+}
