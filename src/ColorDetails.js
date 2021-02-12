@@ -16,8 +16,9 @@ const ColorDetails = ({allColors}) => {
    
     document.body.style.backgroundColor = validColor.hex;
 
-    // Check for the color black since the hex value will return ""
-    if(validColor.color === "black")
+    // Check for the hex value since if set to default or black
+    // it will return ""
+    if(validColor.hex === "")
         document.body.style.backgroundColor = '#000000';
     
     return (
