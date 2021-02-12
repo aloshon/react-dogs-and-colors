@@ -57,18 +57,26 @@ const Routes = () => {
         }
       ];
       
-    const initialColors = [
+    const colors = [
         {color: 'red', hex: "#FF0000"},
         {color: 'green', hex: "#00FF00"},
         {color: 'blue', hex: "#0000FF"},
     ]
 
-    const [allColors, setAllColors] = useState(initialColors)
+    // Get colors from localStorage if there are any otherwise set it
+    const initialColors = JSON.parse(localStorage.getItem("colors", JSON.stringify(colors)));
 
+    const [allColors, setAllColors] = useState(initialColors)
 
     const addColors = ({color, hex}) => {
         setAllColors(colors => [...colors, {color, hex}]);
     }
+
+    useEffect(
+        () => localStorage.setItem("colors", JSON.stringify(allColors)),
+        [allColors]
+      );
+
     
     return (
         <Switch>
